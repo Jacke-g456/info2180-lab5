@@ -24,8 +24,45 @@ if (isset($_GET['country'])) {
 }
 ?>
 
-<ul>
-<?php foreach ($results as $row): ?>
-  <li><?= $row['name'] . ' is ruled by ' . $row['head_of_state']; ?></li>
-<?php endforeach; ?>
-</ul>
+
+<?php if (!empty($results)): ?>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+    <thead>
+        <tr style="background-color: #f2f2f2;">
+            <th>Country Name</th>
+            <th>Continent</th>
+            <th>Independence Year</th>
+            <th>Head of State</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($results as $row): ?>
+        <tr>
+            <td><?= htmlspecialchars($row['name']); ?></td>
+            <td><?= htmlspecialchars($row['continent']); ?></td>
+            <td>
+                <?php 
+                if (!empty($row['independence_year']) && $row['independence_year'] != 0) {
+                    echo htmlspecialchars($row['independence_year']);
+                } else {
+                    echo 'N/A';
+                }
+                ?>
+            </td>
+            <td>
+              <?php 
+                if (!empty($row['head_of_state']) && $row['head_of_state'] != 0) {
+                    echo htmlspecialchars($row['head_of_state']);
+                } else {
+                    echo 'N/A';
+                }
+                ?>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<p>Found <?= count($results); ?> country(ies).</p>
+<?php else: ?>
+<p>No countries found matching your search.</p>
+<?php endif; ?>

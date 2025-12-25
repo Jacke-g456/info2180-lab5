@@ -1,1 +1,61 @@
 /* Add your own styles */
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header{
+    background-color: #0F092E;
+    color:aliceblue;
+    height: 200px;
+    margin-bottom:40px ;
+    padding-top: 40px;
+}
+header img{
+    height: 150px;
+    border-radius: 50%;
+    margin-left: 300px;
+}
+
+header h1{
+    float: right;
+    margin-right: 350px;
+    margin-top: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+#controls{
+    margin-bottom: 20px;
+    margin-left: 370px;
+    width: 80%;
+}
+#country, input{
+    width: 500px;
+    height: 40px;
+    margin-right: 400px;
+    margin-left: 10px;
+    border-radius: 8px;
+    padding-left: 5px;
+    border-color: #B19EFF;
+}
+button{
+    margin-top: 10px;
+    width: 140px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #200C6B;
+    color:aliceblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#lookup{
+    margin-left:180px;
+    margin-right: 10px; 
+}
+
+#result{
+    width: 75%;
+    margin-left: 150px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

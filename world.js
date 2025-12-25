@@ -1,17 +1,28 @@
 document.addEventListener('DOMContentLoaded', function(){
-    const button = document.getElementById('lookup');
+    const count_btn = document.getElementById('lookup');
+    const city_btn = document.getElementById('lookcity')
     const result = document.getElementById('result');
     const input = document.getElementById('country');
+
+    function perform_lookup(type){
     
-    button.addEventListener('click', function(e){
-        e.preventDefault(); 
+         
         let country = input.value.trim();
         let url = 'world.php';
         let xhr = new XMLHttpRequest(); // Create a new XMLHttpRequest object
+        let params = [];
 
         if (country) {
-            url += '?country=' + encodeURIComponent(country);
+            params.push('country=' + encodeURIComponent(country));
         }
+
+        if (type === 'cities'){
+            params.push('lookup=cities')
+        }
+
+        if (params.length > 0) {
+            url += '?' + params.join('&'); // join strings with & in between if type = cities 
+        } 
 
         xhr.open('GET', url, true);
 
@@ -28,11 +39,16 @@ document.addEventListener('DOMContentLoaded', function(){
 
         xhr.send();
 
-
-
-
-
-
+    }
+    count_btn.addEventListener('click', function(e){
+        e.preventDefault();
+        perform_lookup(''); // empty string for default country use
     });
+
+    city_btn.addEventListener('click', function(e){
+        e.preventDefault();
+        perform_lookup('cities'); // cities string for city lookup
+    });
+
 
 });
